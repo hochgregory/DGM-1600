@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by anonymous (http://jsbin.com/joyudeyore/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+//Adventure Game V0.15
+
+//Game Over Function
+
+var death = function(){
+  alert("You died from a random heart attack.");
+}
+
+// Player Info
+
+alert("Welcome to Adventure Game V0.15!");
+var playerName = prompt("What is your name?");
+var mission = confirm("Are you ready to enter your adventure "+ playerName +"?");
+
+// Game Start
+
+if(mission){
+  confirm("You are preparing to explore a nearby mountain range with your two best friends, Nathan and Amanda. In your backpack, you have packed a light jacket, a pocket knife, a water bottle, a flashlight, and a map of the mountain range.");
+}
+else{
+  closeTerminal(death);
+}
+
+function closeTerminal (message){
+  message();
+}
+
+var backpack = prompt("Before setting out, you realize you have space for one more item in your backpack. Do you bring spare batteries for the flashlight or matches? "); 
+
+switch (backpack){
+  case "Batteries":
+    alert("You have chosen to bring extra batteries.");
+    break;
+  default:
+    alert("You have chosen to bring matches.")
+}
+
+alert("You leave your house and begin driving to the mountains. Nathan and Amanda chat about how excited they are while you focus on driving. After an hour of driving deep into the range, you find a suitable place to stop and begin hiking.")
+
+//Later in the game
+
+var options = prompt ("You emerge from the cave into a dense forest. To your left, you see the large pillars of a castle climbing into the sky. To your right, a glossy lake with large, crystalline giants wading through it. Directly in front of you, a road that seems to lead to a large city. Do you go right, left, or straight?");
+
+switch (options){
+  case "Left":
+    alert("You approach the castle, which seems to have been contructed from marble. The large pillars are capped off by domes of crystal. You approach the doors, noticing a patrol of soldiers with crystalline weapons. Upon further inspection, you notice that the crystals are growing out of their bodies. Do you take your chances and fight? Or look for a way around them?");
+    break;
+  case "Right":
+    alert("You begin to approach the lake. The giants take notice of you and smash you with a rock.");
+          alert("You died.");
+    break;
+  default:
+    alert("You chose to go forward. You continue down the road, until you come upon a broken wagon. The canopy has been ripped by what seem to be large claws, and the wagon is empty. Upon further inspection, you notice a mauled corpse of a middle-aged man lying beneath the wagon.");
+}
+</script>
+</body>
+</html>
