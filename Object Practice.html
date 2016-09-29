@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by anonymous (http://jsbin.com/gorewifika/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+//Object Practice
+
+var playerInfo = {
+  playerName:"Jack",
+  age: 21,
+  inventory:"Jack has $23, and a butter knife.",
+  shank:function(){
+    return this.playerName +" uses the butter knife to stab his enemies their kneecaps!!"
+  }
+}
+
+//Calling Properties
+
+console.log(playerInfo.inventory);
+
+console.log(playerInfo.shank());
+
+console.log(playerInfo.playerName +" found 2 dollars on the corpses of the bad guys.")
+
+//Updating Information
+
+playerInfo.inventory = playerInfo.playerName+" now has $25, and a bloodstained butter knife."
+
+console.log(playerInfo.inventory);
+
+//Deleting Object Information
+
+delete playerInfo.shank;
+
+</script>
+</body>
+</html>
