@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by anonymous (http://jsbin.com/kuloromala/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+//Adventure Game V1.0
+//Try again function
+  var tryAgain = function(){
+  var retry = prompt("Would you like to play again? Yes or no?");
+  switch (retry){
+    case "Yes","yes":
+      gameStart();
+      break;
+    case "No","no":
+      alert("Thanks for playing!");
+      end();
+    break;
+  }
+}
+//Treasure ending
+var ending = function(){
+  alert("You leave the large cavern and come into a smaller one. This one happens to be full of gold coins and treasure. You don't know how it got there, but you are about to become a very rich person!");
+  alert("You win!");
+  tryAgain();
+}
+//In the cavern function
+var cavern = function(){
+  alert("The farther you descend in the cave, the darker it becomes. The cavern smells disgusting. Soon, you can see nothing, so you decide to pull your flashlight out of your backpack. You click the button, but the flashlight doesn't activate.");
+  if (plrInv.batteries == 1){
+    alert("Good thing you brought extra batteries! You put the new ones in and the flashlight illuminates your surroundings. You find yourself in a large cavern with an exit on the other side of the room. You decide to leave the cavern.");
+    ending();
+  } 
+  else if(plrInv.matches == 1){
+    alert("You find yourself fumbling around in the dark. You decide to use the matches you brought to get some light. Unfortunatly, the instant you strike the match, the cave around you explodes and so do you.");
+    death(); 
+  }
+}
+//Bear Chase function
+var runIntoCave = function(){
+  alert("You run into the cave. The bear follows you in. Just as it seems you are about to be cornered, you find a small tunnel in the wall, and dive in. The bear claws at the entrance, but can no longer reach you. You can't go back the way you came, so you decide to explore further down the tunnel.");  
+  cavern();
+}
+//Game Over function
+var death = function(){
+  alert("You died!");
+  tryAgain();
+}
+//Strange Noise
+var strangeNoise = function(){
+  alert("You leave your house and begin driving to the mountains. Nathan and Amanda chat about how excited they are while you focus on driving. After an hour of driving deep into the range, you find a suitable place to stop and begin hiking.")
+  var invOrSleep = prompt("After a full day of hiking, you and your friends decide to set up camp. As you are drifting off to sleep, you hear a strange noise, like nails on a chalkboard, coming from deep within the woods. Nathan and Amanda are asleep, and you don't want to wake them. Do you investigate the noise? Or go back to sleep?");
+ 
+  switch (invOrSleep){
+    case "Investigate","investigate":
+    var bear = alert("You put on your backpack and leave the tent, heading in the direction of the noise. After a few minutes of walking, you hear growling, and notice a massive bear behind you. You run and the bear gives chase. To your right is a large opening to a cave. You decide to run in.");
+    runIntoCave();
+    break;
+    default:
+    alert("You decide to ignore the sound and go to sleep. The next morning, you wake up, and Nathan and Amanda are nowhere to be found.");
+    alert("You leave the tent and try to find your friends. Eventually, you come upon a clearing, where you see a massive bear devouring the remains of your friends. Before you have time to react, the bear tackles you and everything goes black.");
+    death();
+  }
+}
+//Batteries or Matches
+var batteriesOrMatches = function(){
+  var backpack = prompt("Before setting out, you realize you have space for one more item in your backpack. Do you bring spare batteries for the flashlight or matches? "); 
+  
+  switch (backpack){
+  case "Batteries","batteries":
+    alert("You have chosen to bring batteries");
+    plrInv.batteries = 1;
+    strangeNoise();  
+    break;
+  case "Matches","matches":
+    alert("You have chosen to bring matches.");
+    plrInv.matches = 1;
+    strangeNoise();
+    break;
+}
+}
+// Game Start function
+  var gameStart = function(){
+    alert("Welcome to Adventure Game V1.0!");
+    var playerName = prompt("What is your name?");
+    var mission = confirm("Are you ready to enter your adventure "+ playerName +"?");
+    if(mission){
+    confirm("You are preparing to explore a nearby mountain range with your two best friends, Nathan and Amanda. In your backpack, you have packed a light jacket, a pocket knife, a water bottle, a flashlight, and a map of the mountain range.");
+    batteriesOrMatches();
+    } else{
+    death();
+  }
+}
+  
+//Player Inventory
+var matches = 0;
+var batteries = 0;
+var plrInv = {
+  matches: 0,
+  batteries: 0,
+};
+// Beginning
+gameStart();
+</script>
+
+
+
+<script id="jsbin-source-javascript" type="text/javascript">//Adventure Game V1.0
+//Try again function
+  var tryAgain = function(){
+  var retry = prompt("Would you like to play again? Yes or no?");
+  switch (retry){
+    case "Yes","yes":
+      gameStart();
+      break;
+    case "No","no":
+      alert("Thanks for playing!");
+      end();
+    break;
+  }
+}
+//Treasure ending
+var ending = function(){
+  alert("You leave the large cavern and come into a smaller one. This one happens to be full of gold coins and treasure. You don't know how it got there, but you are about to become a very rich person!");
+  alert("You win!");
+  tryAgain();
+}
+//In the cavern function
+var cavern = function(){
+  alert("The farther you descend in the cave, the darker it becomes. The cavern smells disgusting. Soon, you can see nothing, so you decide to pull your flashlight out of your backpack. You click the button, but the flashlight doesn't activate.");
+  if (plrInv.batteries == 1){
+    alert("Good thing you brought extra batteries! You put the new ones in and the flashlight illuminates your surroundings. You find yourself in a large cavern with an exit on the other side of the room. You decide to leave the cavern.");
+    ending();
+  } 
+  else if(plrInv.matches == 1){
+    alert("You find yourself fumbling around in the dark. You decide to use the matches you brought to get some light. Unfortunatly, the instant you strike the match, the cave around you explodes and so do you.");
+    death(); 
+  }
+}
+//Bear Chase function
+var runIntoCave = function(){
+  alert("You run into the cave. The bear follows you in. Just as it seems you are about to be cornered, you find a small tunnel in the wall, and dive in. The bear claws at the entrance, but can no longer reach you. You can't go back the way you came, so you decide to explore further down the tunnel.");  
+  cavern();
+}
+//Game Over function
+var death = function(){
+  alert("You died!");
+  tryAgain();
+}
+//Strange Noise
+var strangeNoise = function(){
+  alert("You leave your house and begin driving to the mountains. Nathan and Amanda chat about how excited they are while you focus on driving. After an hour of driving deep into the range, you find a suitable place to stop and begin hiking.")
+  var invOrSleep = prompt("After a full day of hiking, you and your friends decide to set up camp. As you are drifting off to sleep, you hear a strange noise, like nails on a chalkboard, coming from deep within the woods. Nathan and Amanda are asleep, and you don't want to wake them. Do you investigate the noise? Or go back to sleep?");
+ 
+  switch (invOrSleep){
+    case "Investigate","investigate":
+    var bear = alert("You put on your backpack and leave the tent, heading in the direction of the noise. After a few minutes of walking, you hear growling, and notice a massive bear behind you. You run and the bear gives chase. To your right is a large opening to a cave. You decide to run in.");
+    runIntoCave();
+    break;
+    default:
+    alert("You decide to ignore the sound and go to sleep. The next morning, you wake up, and Nathan and Amanda are nowhere to be found.");
+    alert("You leave the tent and try to find your friends. Eventually, you come upon a clearing, where you see a massive bear devouring the remains of your friends. Before you have time to react, the bear tackles you and everything goes black.");
+    death();
+  }
+}
+//Batteries or Matches
+var batteriesOrMatches = function(){
+  var backpack = prompt("Before setting out, you realize you have space for one more item in your backpack. Do you bring spare batteries for the flashlight or matches? "); 
+  
+  switch (backpack){
+  case "Batteries","batteries":
+    alert("You have chosen to bring batteries");
+    plrInv.batteries = 1;
+    strangeNoise();  
+    break;
+  case "Matches","matches":
+    alert("You have chosen to bring matches.");
+    plrInv.matches = 1;
+    strangeNoise();
+    break;
+}
+}
+// Game Start function
+  var gameStart = function(){
+    alert("Welcome to Adventure Game V1.0!");
+    var playerName = prompt("What is your name?");
+    var mission = confirm("Are you ready to enter your adventure "+ playerName +"?");
+    if(mission){
+    confirm("You are preparing to explore a nearby mountain range with your two best friends, Nathan and Amanda. In your backpack, you have packed a light jacket, a pocket knife, a water bottle, a flashlight, and a map of the mountain range.");
+    batteriesOrMatches();
+    } else{
+    death();
+  }
+}
+  
+//Player Inventory
+var matches = 0;
+var batteries = 0;
+var plrInv = {
+  matches: 0,
+  batteries: 0,
+};
+// Beginning
+gameStart();
+</script><script id="jsbin-javascript">
+//Adventure Game V1.0
+
+//Try again function
+  var tryAgain = function(){
+  var retry = prompt("Would you like to play again? Yes or no?");
+  switch (retry){
+    case "Yes","yes":
+      gameStart();
+      break;
+    case "No","no":
+      alert("Thanks for playing!");
+      end();
+    break;
+  }
+}
+
+//Treasure ending
+
+var ending = function(){
+  alert("You leave the large cavern and come into a smaller one. This one happens to be full of gold coins and treasure. You don't know how it got there, but you are about to become a very rich person!");
+  alert("You win!");
+  tryAgain();
+}
+
+//In the cavern function
+
+var cavern = function(){
+  alert("The farther you descend in the cave, the darker it becomes. The cavern smells disgusting. Soon, you can see nothing, so you decide to pull your flashlight out of your backpack. You click the button, but the flashlight doesn't activate.");
+  if (plrInv.batteries == 1){
+    alert("Good thing you brought extra batteries! You put the new ones in and the flashlight illuminates your surroundings. You find yourself in a large cavern with an exit on the other side of the room. You decide to leave the cavern.");
+    ending();
+  } 
+  else if(plrInv.matches == 1){
+    alert("You find yourself fumbling around in the dark. You decide to use the matches you brought to get some light. Unfortunatly, the instant you strike the match, the cave around you explodes and so do you.");
+    death(); 
+  }
+}
+
+//Bear Chase function
+
+var runIntoCave = function(){
+  alert("You run into the cave. The bear follows you in. Just as it seems you are about to be cornered, you find a small tunnel in the wall, and dive in. The bear claws at the entrance, but can no longer reach you. You can't go back the way you came, so you decide to explore further down the tunnel.");  
+  cavern();
+}
+
+//Game Over function
+
+var death = function(){
+  alert("You died!");
+  tryAgain();
+}
+
+//Strange Noise
+
+var strangeNoise = function(){
+  alert("You leave your house and begin driving to the mountains. Nathan and Amanda chat about how excited they are while you focus on driving. After an hour of driving deep into the range, you find a suitable place to stop and begin hiking.")
+  var invOrSleep = prompt("After a full day of hiking, you and your friends decide to set up camp. As you are drifting off to sleep, you hear a strange noise, like nails on a chalkboard, coming from deep within the woods. Nathan and Amanda are asleep, and you don't want to wake them. Do you investigate the noise? Or go back to sleep?");
+ 
+  switch (invOrSleep){
+    case "Investigate","investigate":
+    var bear = alert("You put on your backpack and leave the tent, heading in the direction of the noise. After a few minutes of walking, you hear growling, and notice a massive bear behind you. You run and the bear gives chase. To your right is a large opening to a cave. You decide to run in.");
+    runIntoCave();
+    break;
+    default:
+    alert("You decide to ignore the sound and go to sleep. The next morning, you wake up, and Nathan and Amanda are nowhere to be found.");
+    alert("You leave the tent and try to find your friends. Eventually, you come upon a clearing, where you see a massive bear devouring the remains of your friends. Before you have time to react, the bear tackles you and everything goes black.");
+    death();
+  }
+}
+
+//Batteries or Matches
+
+var batteriesOrMatches = function(){
+  var backpack = prompt("Before setting out, you realize you have space for one more item in your backpack. Do you bring spare batteries for the flashlight or matches? "); 
+  
+  switch (backpack){
+  case "Batteries","batteries":
+    alert("You have chosen to bring batteries");
+    plrInv.batteries = 1;
+    strangeNoise();  
+    break;
+  case "Matches","matches":
+    alert("You have chosen to bring matches.");
+    plrInv.matches = 1;
+    strangeNoise();
+    break;
+}
+}
+
+// Game Start function
+
+  var gameStart = function(){
+    alert("Welcome to Adventure Game V1.0!");
+    var playerName = prompt("What is your name?");
+    var mission = confirm("Are you ready to enter your adventure "+ playerName +"?");
+    if(mission){
+    confirm("You are preparing to explore a nearby mountain range with your two best friends, Nathan and Amanda. In your backpack, you have packed a light jacket, a pocket knife, a water bottle, a flashlight, and a map of the mountain range.");
+    batteriesOrMatches();
+    } else{
+    death();
+  }
+}
+  
+//Player Inventory
+
+var matches = 0;
+var batteries = 0;
+var plrInv = {
+  matches: 0,
+  batteries: 0,
+};
+
+// Beginning
+
+gameStart();
+
+</script>
+</body>
+</html>
